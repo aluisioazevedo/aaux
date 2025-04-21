@@ -15,7 +15,10 @@ export function ProjectCard({ title, description, image, href, tags, large = fal
   return (
     <Link
       href={href}
-      className={cn("group block relative min-w-[280px] md:min-w-[400px]", large && "md:min-w-[600px]")}
+      className={cn(
+        "group block relative",
+        large ? "min-w-[280px] md:min-w-[600px]" : "min-w-[280px] md:min-w-[400px]",
+      )}
     >
       <div className="overflow-hidden mb-4">
         <Image

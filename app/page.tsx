@@ -62,6 +62,7 @@ export default function Home() {
                 image="/placeholder.svg?height=600&width=800"
                 href="/projects/project-two"
                 tags={["User Testing", "Interaction Design"]}
+                large
               />
               <ProjectCard
                 title="Project Three"
@@ -69,6 +70,7 @@ export default function Home() {
                 image="/placeholder.svg?height=600&width=800"
                 href="/projects/project-three"
                 tags={["Data Visualization", "Mobile Design"]}
+                large
               />
               <ProjectCard
                 title="Project Four"
@@ -76,6 +78,15 @@ export default function Home() {
                 image="/placeholder.svg?height=600&width=800"
                 href="/projects/project-four"
                 tags={["Product Strategy", "Design Leadership"]}
+                large
+              />
+              <ProjectCard
+                title="Project Five"
+                description="Customer support experience"
+                image="/placeholder.svg?height=600&width=800"
+                href="/projects/project-five"
+                tags={["Service Design", "User Flows"]}
+                large
               />
             </HorizontalScroll>
 
