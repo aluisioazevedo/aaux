@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Footer } from "@/components/footer"
 
 // This is a placeholder. In a real implementation, you would fetch data based on the slug
 export default function ProjectPage({ params }: { params: { slug: string } }) {
@@ -60,138 +61,144 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <div className="bg-[#f8f8f8] dark:bg-[#0f0f0f] min-h-screen">
-      <div className="container px-4 py-12 md:px-6 md:py-24 max-w-[1400px]">
-        <Link href="/projects">
-          <Button variant="link" className="pl-0 mb-12 text-lg p-0 h-auto font-medium group">
-            <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
-            All projects
-          </Button>
-        </Link>
+    <div className="flex flex-col min-h-screen bg-[#f8f8f8] dark:bg-[#0f0f0f]">
+      <main className="flex-1">
+        <div className="container px-4 py-12 md:px-6 md:py-24 max-w-[1400px]">
+          <Link href="/projects">
+            <Button variant="link" className="pl-0 mb-12 text-lg p-0 h-auto font-medium group">
+              <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1" />
+              All projects
+            </Button>
+          </Link>
 
-        <div className="grid gap-16">
-          {/* Project Header */}
-          <div className="grid gap-6 max-w-[800px]">
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]">{project.title}</h1>
-            <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400">{project.subtitle}</p>
-            <div className="flex flex-wrap gap-4 mt-2">
-              {project.tags.map((tag) => (
-                <span key={tag} className="text-sm text-gray-500 dark:text-gray-400">
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Project Meta */}
-          <div className="grid gap-8 md:grid-cols-3 border-t border-b py-8 border-gray-200 dark:border-gray-800">
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
-              <p>{project.role}</p>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Duration</h3>
-              <p>{project.duration}</p>
-            </div>
-            <div>
-              <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Company</h3>
-              <p>{project.company}</p>
-            </div>
-          </div>
-
-          {/* Hero Image */}
-          <div className="overflow-hidden">
-            <Image
-              src={project.heroImage || "/placeholder.svg"}
-              alt={project.title}
-              width={1600}
-              height={800}
-              className="w-full object-cover"
-            />
-          </div>
-
-          {/* Overview */}
-          <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
-            <div>
-              <h2 className="text-2xl font-bold">Overview</h2>
-            </div>
-            <div className="prose prose-lg dark:prose-invert">
-              <p>{project.overview}</p>
-            </div>
-          </div>
-
-          {/* Problem Statement */}
-          <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
-            <div>
-              <h2 className="text-2xl font-bold">Problem</h2>
-            </div>
-            <div className="prose prose-lg dark:prose-invert">
-              <p>{project.problemStatement}</p>
-            </div>
-          </div>
-
-          {/* Process */}
-          <div>
-            <h2 className="text-2xl font-bold mb-12">Process</h2>
-            <div className="space-y-24">
-              {project.process.map((step, index) => (
-                <div key={index} className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-                  <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
-                    <h3 className="text-xl font-bold mb-4">{step.title}</h3>
-                    <p className="text-gray-500 dark:text-gray-400">{step.description}</p>
-                  </div>
-                  <div className={`overflow-hidden ${index % 2 === 1 ? "md:order-1" : ""}`}>
-                    <Image
-                      src={step.image || "/placeholder.svg"}
-                      alt={step.title}
-                      width={800}
-                      height={600}
-                      className="w-full object-cover"
-                    />
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Outcomes */}
-          <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
-            <div>
-              <h2 className="text-2xl font-bold">Outcomes</h2>
-            </div>
-            <div>
-              <ul className="space-y-4">
-                {project.outcomes.map((outcome, index) => (
-                  <li key={index} className="text-lg">
-                    {outcome}
-                  </li>
+          <div className="grid gap-16">
+            {/* Project Header */}
+            <div className="grid gap-6 max-w-[800px]">
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]">{project.title}</h1>
+              <p className="text-xl md:text-2xl text-gray-500 dark:text-gray-400">{project.subtitle}</p>
+              <div className="flex flex-wrap gap-4 mt-2">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="text-sm text-gray-500 dark:text-gray-400">
+                    {tag}
+                  </span>
                 ))}
-              </ul>
+              </div>
             </div>
-          </div>
 
-          {/* Reflection */}
-          <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+            {/* Project Meta */}
+            <div className="grid gap-8 md:grid-cols-3 border-t border-b py-8 border-gray-200 dark:border-gray-800">
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Role</h3>
+                <p>{project.role}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Duration</h3>
+                <p>{project.duration}</p>
+              </div>
+              <div>
+                <h3 className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-2">Company</h3>
+                <p>{project.company}</p>
+              </div>
+            </div>
+
+            {/* Hero Image */}
+            <div className="overflow-hidden">
+              <Image
+                src={project.heroImage || "/placeholder.svg"}
+                alt={project.title}
+                width={1600}
+                height={800}
+                className="w-full object-cover"
+              />
+            </div>
+
+            {/* Overview */}
+            <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+              <div>
+                <h2 className="text-2xl font-bold">Overview</h2>
+              </div>
+              <div className="prose prose-lg dark:prose-invert">
+                <p>
+                  My efforts helped support Chattermill's $26M Series B round, and directly contributed to a 200%
+                  increase in pipeline in 2022.
+                </p>
+              </div>
+            </div>
+
+            {/* Problem Statement */}
+            <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+              <div>
+                <h2 className="text-2xl font-bold">Problem</h2>
+              </div>
+              <div className="prose prose-lg dark:prose-invert">
+                <p>{project.problemStatement}</p>
+              </div>
+            </div>
+
+            {/* Process */}
             <div>
-              <h2 className="text-2xl font-bold">Reflection</h2>
+              <h2 className="text-2xl font-bold mb-12">Process</h2>
+              <div className="space-y-24">
+                {project.process.map((step, index) => (
+                  <div key={index} className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
+                    <div className={`${index % 2 === 1 ? "md:order-2" : ""}`}>
+                      <h3 className="text-xl font-bold mb-4">{step.title}</h3>
+                      <p className="text-gray-500 dark:text-gray-400">{step.description}</p>
+                    </div>
+                    <div className={`overflow-hidden ${index % 2 === 1 ? "md:order-1" : ""}`}>
+                      <Image
+                        src={step.image || "/placeholder.svg"}
+                        alt={step.title}
+                        width={800}
+                        height={600}
+                        className="w-full object-cover"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className="prose prose-lg dark:prose-invert">
-              <p>{project.reflection}</p>
-            </div>
-          </div>
 
-          {/* Next Project */}
-          <div className="mt-16 pt-16 border-t border-gray-200 dark:border-gray-800">
-            <div className="flex justify-between items-center">
-              <span className="text-sm text-gray-500 dark:text-gray-400">Next Project</span>
-              <Link href={`/projects/${project.nextProject.slug}`} className="group flex items-center">
-                <span className="text-lg font-medium mr-2">{project.nextProject.title}</span>
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+            {/* Outcomes */}
+            <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+              <div>
+                <h2 className="text-2xl font-bold">Outcomes</h2>
+              </div>
+              <div>
+                <ul className="space-y-4">
+                  {project.outcomes.map((outcome, index) => (
+                    <li key={index} className="text-lg">
+                      {outcome}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Reflection */}
+            <div className="grid md:grid-cols-[1fr_2fr] gap-8 md:gap-16">
+              <div>
+                <h2 className="text-2xl font-bold">Reflection</h2>
+              </div>
+              <div className="prose prose-lg dark:prose-invert">
+                <p>{project.reflection}</p>
+              </div>
+            </div>
+
+            {/* Next Project */}
+            <div className="mt-16 pt-16 border-t border-gray-200 dark:border-gray-800">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-gray-500 dark:text-gray-400">Next Project</span>
+                <Link href={`/projects/${project.nextProject.slug}`} className="group flex items-center">
+                  <span className="text-lg font-medium mr-2">{project.nextProject.title}</span>
+                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
+      <Footer />
     </div>
   )
 }
