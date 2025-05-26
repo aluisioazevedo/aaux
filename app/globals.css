@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 97%;
+    --background: 0 0% 99%; /* Changed from 97% to match #FBFDFC */
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -55,6 +55,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: #fbfdfc; /* Override with exact color */
+  }
+
+  /* Style all heading elements with the new color */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #0f301d;
+  }
+
+  /* Ensure dark mode headings remain visible */
+  .dark h1,
+  .dark h2,
+  .dark h3,
+  .dark h4,
+  .dark h5,
+  .dark h6 {
+    color: #98fb98; /* Light green for dark mode */
   }
 }
 

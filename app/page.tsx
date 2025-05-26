@@ -25,26 +25,31 @@ export default function Home() {
   ]
 
   return (
-    <div className="flex flex-col min-h-screen bg-white dark:bg-black">
+    <div className="flex flex-col min-h-screen" style={{ backgroundColor: "#FBFDFC" }}>
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="w-full py-20 md:py-28">
+        <section className="w-full py-20 md:py-28" style={{ backgroundColor: "#FBFDFC" }}>
           <div className="container px-4 md:px-6 max-w-[1400px]">
             <div className="max-w-[800px]">
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
-                Product Designer.
-                <br />
-                London, UK.
-              </h1>
+              <div className="flex flex-col items-start gap-4 mb-6">
+                <Image
+                  src="/images/avatar.png"
+                  alt="Aluisio's Avatar"
+                  width={60}
+                  height={60}
+                  className="rounded-full"
+                />
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]">Hi, I'm Aluisio.</h1>
+              </div>
               <p className="text-lg md:text-xl text-gray-600 dark:text-gray-400 max-w-[600px]">
-                Creating thoughtful digital experiences for SaaS startups.
+                I help organizations turn complex problems into thoughtful, scalable digital products.
               </p>
             </div>
           </div>
         </section>
 
         {/* Projects Grid Section */}
-        <section className="w-full pb-20 md:pb-32">
+        <section className="w-full pb-20 md:pb-32" style={{ backgroundColor: "#FBFDFC" }}>
           <div className="container px-4 md:px-6 max-w-[1400px]">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
               {featuredProjects.map((project, index) => (
@@ -82,7 +87,10 @@ export default function Home() {
         </section>
 
         {/* About Section */}
-        <section className="w-full py-20 md:py-28 border-t border-gray-200 dark:border-gray-800">
+        <section
+          className="w-full py-20 md:py-28 border-t border-gray-200 dark:border-gray-800"
+          style={{ backgroundColor: "#FBFDFC" }}
+        >
           <div className="container px-4 md:px-6 max-w-[1400px]">
             <div className="grid md:grid-cols-2 gap-12 md:gap-24 items-start">
               <div>
